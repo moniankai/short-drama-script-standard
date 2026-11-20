@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "source": "我爱剧本 (52juben.com) 公开数据洞察统计汇总",
+  "source_urls": {
+    "overview": "https://52juben.com/show/stats/",
+    "qa": "https://52juben.com/show/stats/qa/",
+    "qa_markdown": "https://52juben.com/show/stats/qa.md",
+    "dialogue": "https://52juben.com/show/stats/dialogue/",
+    "paywall": "https://52juben.com/show/stats/paywall/",
+    "genre": "https://52juben.com/show/stats/genre/",
+    "free_tools": "https://52juben.com/show/tools/"
+  },
+  "public_data_updated_at": "2026-11-18",
+  "scope_note": "各项指标分别基于公开已整理样本独立统计，只描述已收录样本资料特征，不外推为全行业固定标准或商业转化保证。",
+  "episode_count_distribution": {
+    "sample_dramas": 684,
+    "median": 77,
+    "p25": 61,
+    "p75": 102
+  },
+  "per_episode_rhythm": {
+    "scene_sample_episodes": 58742,
+    "scene_sample_dramas": 684,
+    "scenes_per_episode_median": 2,
+    "dialogue_sample_episodes": 58742,
+    "dialogue_sample_dramas": 684,
+    "dialogues_per_episode_mean": 14.1,
+    "dialogues_per_episode_median": 13.0,
+    "dialogues_per_episode_p25": 9.0,
+    "dialogues_per_episode_p75": 17.0,
+    "dialogues_per_episode_min": 0.0,
+    "dialogues_per_episode_max": 265.0
+  },
+  "dialogue_line_profile": {
+    "sample_dramas": 24,
+    "avg_chars_per_line_median": 18.6,
+    "emotion_tag_pct_median": 44,
+    "note": "仅统计已整理非空台词行的市场来源样本（字符含标点，不等同于配音语速或成片时长）。"
+  },
+  "paywall_decade_distribution": {
+    "sample_records": 1741,
+    "sample_dramas": 673,
+    "excluded_missing_records": 241,
+    "pct_within_first_50_episodes": 69,
+    "peak_decade": "11-20",
+    "peak_decade_count": 276,
+    "peak_decade_pct": 16,
+    "decades": [
+      {"ep_start": 1, "ep_end": 10, "count": 247, "pct": 14},
+      {"ep_start": 11, "ep_end": 20, "count": 276, "pct": 16},
+      {"ep_start": 21, "ep_end": 30, "count": 233, "pct": 13},
+      {"ep_start": 31, "ep_end": 40, "count": 233, "pct": 13},
+      {"ep_start": 41, "ep_end": 50, "count": 215, "pct": 12},
+      {"ep_start": 51, "ep_end": 60, "count": 149, "pct": 9},
+      {"ep_start": 61, "ep_end": 70, "count": 116, "pct": 7},
+      {"ep_start": 71, "ep_end": 80, "count": 64, "pct": 4},
+      {"ep_start": 81, "ep_end": 90, "count": 60, "pct": 3},
+      {"ep_start": 91, "ep_end": 100, "count": 44, "pct": 3},
+      {"ep_start": 101, "ep_end": 110, "count": 35, "pct": 2},
+      {"ep_start": 111, "ep_end": 120, "count": 23, "pct": 1},
+      {"ep_start": 121, "ep_end": 130, "count": 18, "pct": 1},
+      {"ep_start": 131, "ep_end": 140, "count": 9, "pct": 1},
+      {"ep_start": 141, "ep_end": 150, "count": 6, "pct": 0},
+      {"ep_start": 151, "ep_end": 160, "count": 5, "pct": 0},
+      {"ep_start": 161, "ep_end": 170, "count": 2, "pct": 0},
+      {"ep_start": 171, "ep_end": 180, "count": 3, "pct": 0},
+      {"ep_start": 181, "ep_end": 190, "count": 2, "pct": 0},
+      {"ep_start": 191, "ep_end": 200, "count": 1, "pct": 0}
+    ],
+    "note": "依据剧情拆解标注的情绪与悬念节点按十集区段统计，不代表平台实际收费集数。"
+  },
+  "top_genres": [
+    {"genre": "都市逆袭", "count": 112, "pct": 16.4},
+    {"genre": "年代逆袭", "count": 58, "pct": 8.5},
+    {"genre": "家庭伦理", "count": 42, "pct": 6.1},
+    {"genre": "乡村种田", "count": 41, "pct": 6.0},
+    {"genre": "古装穿越", "count": 41, "pct": 6.0},
+    {"genre": "仙侠修仙", "count": 38, "pct": 5.6},
+    {"genre": "奇幻脑洞", "count": 37, "pct": 5.4},
+    {"genre": "女强复仇", "count": 26, "pct": 3.8},
+    {"genre": "创业致富", "count": 25, "pct": 3.7},
+    {"genre": "古装权谋", "count": 24, "pct": 3.5}
+  ]
+}
