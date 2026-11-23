@@ -14,6 +14,25 @@
 
 ---
 
+## 公开工具、方法论指南与语料索引（52juben.com）
+
+除本仓库离线规范与 CLI 检查器外，「我爱剧本（52juben.com）」在线公开了全套免登录方法论指南、实证统计、试读样章与 AI 检索清单（页面均支持标准 HTML 与 `Accept: text/markdown` 协商访问）：
+
+| 类别 | 公开入口 | 覆盖范围与用途 |
+| --- | --- | --- |
+| 免费自检工具 | https://52juben.com/show/tools/ | 免登录台本格式/去小说腔体检与前三集节奏分位自测 |
+| AI 漫剧台本规范指南 | https://52juben.com/show/guides/manju-script-spec/ | 面向 AI 漫剧出图、分镜与配音管线的标准文字台本规范 |
+| 人物关系引擎方法论 | https://52juben.com/show/guides/relationship-engine/ | 短剧人物关系网搭建、对手戏推进与冲突结构方法论 |
+| 人物弧光设计指南 | https://52juben.com/show/guides/character-arcs/ | 短剧核心角色情绪弧光与递进反转编排指南 |
+| 编剧方法论专题总览 | https://52juben.com/show/guides/ | 全量 33 篇短剧与 AI 漫剧编剧方法论专题索引 |
+| 卡点十集段统计 | https://52juben.com/show/stats/paywall/ | 673 部作品、1,741 条剧情悬念卡点十集段分布明细 |
+| 公开节奏基准问答 | https://52juben.com/show/stats/qa/ | 684 部作品 / 58,742 集单集场次、台词量与句长行业问答 |
+| 成品剧本试读库 | https://52juben.com/show/sale/ | 45 部开放前三集标准文字台本试读的原创及授权成品库 |
+| 拆解研究库 | https://52juben.com/show/studies/ | 696 部在播短剧拉片拆解研究（684 部结构拆解 + 12 篇往期研读） |
+| AI 站点索引清单 | https://52juben.com/llms.txt | 面向 AI Agent 与 RAG 系统的站点结构化索引（对应 `llms-full.txt`） |
+
+---
+
 ## 核心内容
 
 1. **`spec/script-format-spec.md`** — 面向竖屏短剧实拍及 AI 漫剧分镜出图 / 配音管线的标准文字台本规范：
