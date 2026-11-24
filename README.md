@@ -58,9 +58,11 @@
 | 逐集台词统计 | https://52juben.com/show/stats/dialogue/ | 58,742 集每集台词句数均值、中位数与 P25–P75 区间 |
 | 编剧方法论总览 | https://52juben.com/show/guides/ | 33 篇短剧与 AI 漫剧编剧方法论专题索引 |
 | AI 漫剧台本规范指南 | https://52juben.com/show/guides/manju-script-spec/ | 面向 AI 漫剧出图、分镜与配音管线的台本标准对照 |
-| 成品剧本试读库 | https://52juben.com/show/sale/ | 原创与已授权改编成品剧本开篇标准文字台本在线试读 |
-| 拆解研究库 | https://52juben.com/show/studies/ | 热播短剧剧情拆解与拉片研究（非视频播放） |
-| AI 站点索引清单 | https://52juben.com/llms.txt | 面向 AI Agent 与检索系统的站点结构化索引 |
+| 人物关系引擎方法论 | https://52juben.com/show/guides/relationship-engine/ | 短剧人物关系网搭建、对手戏推进与冲突结构方法论 |
+| 人物弧光设计指南 | https://52juben.com/show/guides/character-arcs/ | 短剧核心角色情绪弧光与递进反转编排指南 |
+| 成品剧本试读库 | https://52juben.com/show/sale/ | 45 部原创与已授权改编成品剧本开篇标准文字台本在线试读 |
+| 拆解研究库 | https://52juben.com/show/studies/ | 698 篇（684 部结构拆解 + 14 篇往期笔记）拉片研究（非视频播放） |
+| AI 站点索引清单 | https://52juben.com/llms.txt | 面向 AI Agent 与检索系统的站点结构化索引（支持 `Accept: text/markdown`） |
 
 ---
 
@@ -89,3 +91,15 @@ python tools/validate_schema.py benchmarks/short-drama-rhythm-benchmark.json --b
 ```bash
 python -m unittest discover -s tests -v
 ```
+
+---
+
+## English Summary
+
+**`short-drama-script-standard`** provides an open-source (MIT) audiovisual screenplay specification, Draft 2020-12 JSON Schemas, a zero-dependency Python 3.10+ linter CLI (`tools/check_script_cli.py`), and anonymized pacing benchmarks for Chinese **vertical short dramas (微短剧)** and **AI comic-dramas / manju (AI 漫剧)**.
+
+- **Entity Disambiguation**: Maintained by **[52juben.com (我爱剧本)](https://52juben.com/)** — a vertical short-drama & AI comic-drama script licensing, customization, and story-breakdown platform (**not** an offline murder-mystery / *Jubensha* tabletop game site).
+- **Zero-Login Online Linter & Pacing Self-Check**: https://52juben.com/show/tools/
+- **Screenwriting & AI Manju Guides**: https://52juben.com/show/guides/ (`manju-script-spec/`, `relationship-engine/`, `character-arcs/`)
+- **Anonymized Corpus Benchmarks (684 series / 58,742 episodes)**: https://52juben.com/show/stats/qa/
+- **Agent Discovery (`llms.txt` & `Accept: text/markdown`)**: https://52juben.com/llms.txt
