@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.1.0",
+  "title": "反例示例",
+  "format_mode": "ai_manju",
+  "episodes": [
+    {
+      "ep_no": 1,
+      "scenes": [
+        {
+          "ep_no": 1,
+          "scene_no": 2,
+          "location": "办公室",
+          "time_of_day": "日",
+          "interior_exterior": "内外",
+          "characters": ["林峰"],
+          "lines": [
+            {
+              "kind": "action",
+              "text": "一名身着西装的神秘男子推门而入，手里的文件夹给了一个特写。"
+            },
+            {
+              "kind": "dialogue",
+              "text": "没有标注说话人的台词。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

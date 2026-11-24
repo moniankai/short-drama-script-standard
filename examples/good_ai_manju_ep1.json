@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.1.0",
+  "title": "东院合契",
+  "format_mode": "ai_manju",
+  "genre": "古装权谋",
+  "episodes": [
+    {
+      "ep_no": 1,
+      "summary": "陆明远在茶厅当众合印查出假账，傍晚又接周家扣船消息。",
+      "scenes": [
+        {
+          "ep_no": 1,
+          "scene_no": 1,
+          "location": "东院茶厅",
+          "time_of_day": "日",
+          "interior_exterior": "内",
+          "characters": ["陆明远", "周岚", "赵叔"],
+          "lines": [
+            {
+              "kind": "action",
+              "text": "陆明远站在红木长桌前，把一叠泛黄的契约摊在桌面。"
+            },
+            {
+              "kind": "closeup",
+              "text": "契约右下角盖着半枚残缺的红色私印。"
+            },
+            {
+              "kind": "dialogue",
+              "speaker": "周岚",
+              "emotion": "冷笑",
+              "text": "你拿一张缺了角的旧纸，就想赶我出陆家门？"
+            },
+            {
+              "kind": "dialogue",
+              "speaker": "陆明远",
+              "emotion": "平静",
+              "text": "私印另一半，一直压在赵叔掌管的库房账箱底下。"
+            },
+            {
+              "kind": "action",
+              "text": "赵叔捧着黑漆木盒走上前，掀开盒盖，取出一枚铜印按在纸上。"
+            },
+            {
+              "kind": "action",
+              "text": "两半印痕严丝合缝地拼成一整枚方章。"
+            },
+            {
+              "kind": "dialogue",
+              "speaker": "周岚",
+              "emotion": "慌",
+              "text": "这不可能，库房钥匙明明在我手里！"
+            },
+            {
+              "kind": "dialogue",
+              "speaker": "陆明远",
+              "text": "你昨晚换掉的那把铜锁，早就把底细露干净了。"
+            },
+            {
+              "kind": "dialogue",
+              "speaker": "赵叔",
+              "emotion": "沉声",
+              "text": "请二奶奶把箱底那本真账拿出来吧。"
+            }
+          ]
+        },
+        {
+          "ep_no": 1,
+          "scene_no": 2,
+          "location": "东院回廊",
+          "time_of_day": "黄昏",
+          "interior_exterior": "外",
+          "characters": ["陆明远", "林青"],
+          "lines": [
+            {
+              "kind": "caption",
+              "text": "两个时辰后"
+            },
+            {
+              "kind": "action",
+              "text": "林青拎着两盏灯笼跑进廊下，停在陆明远身前喘气。"
+            },
+            {
+              "kind": "dialogue",
+              "speaker": "林青",
+              "emotion": "急切",
+              "text": "少爷，码头那边传回口信，周家把三艘货船全扣在闸口外头了。"
+            },
+            {
+              "kind": "action",
+              "text": "陆明远折起手中契约塞进袖袋，转身望向院门外。"
+            },
+            {
+              "kind": "os",
+              "speaker": "陆明远",
+              "text": "扣船是假，想逼我亲手交出库房钥匙才是真。"
+            },
+            {
+              "kind": "dialogue",
+              "speaker": "陆明远",
+              "text": "备车，现在就去闸口。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

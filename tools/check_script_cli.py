@@ -23,9 +23,9 @@ DIALOGUE_RE = re.compile(
 CAPTION_RE = re.compile(r"^△?【字幕[：:](?P<inner>[^】]+)】")
 TIME_CAPTION_RE = re.compile(
     r"(次日|翌日|转天|第\S+?[天日]|当夜|当晚|清晨|凌晨|早[上天]|上午|中午|午后|傍晚|黄昏|深夜|半夜|"
-    r"[一二两三四五六七八九十几数半\d]+\s*(秒|分|小时|天|日|周|月|年)|原世界|现代|过去|未来)"
+    r"[一二两三四五六七八九十几数半\d]+\s*(秒|分|小时|天|日|周|月|年|个时辰)|原世界|现代|过去|未来)"
 )
-FAKE_CAPTION_RE = re.compile(r"叮|系统|弹幕|弹窗|到账|账户|转账|余额|^[^：:，。！？\s]{1,12}[：:]")
+FAKE_CAPTION_RE = re.compile(r"叮|系统|弹幕|弹窗|到账|账户|转账|余额|微信|^[^：:，。！？\s]{1,12}[：:]")
 CLICHE_RE = re.compile(
     r"指节|瞳孔|指尖(?:敲|叩|点|蹭|摩挲|抠|掐|捏|发颤|颤|抖|收紧|泛白|一顿|一紧|一僵)"
     r"|嘴张着|张着嘴|张了张嘴|嘴唇(?:动|抖|颤|哆嗦)|得像冰|得像水|得能滴出水"
@@ -33,6 +33,13 @@ CLICHE_RE = re.compile(
 MENTAL_RE = re.compile(
     r"脑海(?:中|里)?(?:却)?(?:突然|反复)?(?:闪过|闪现|浮现|响起|回荡)"
     r"|脑中(?:飞速)?(?:盘算|思索|闪过|浮现)"
+)
+LITERARY_RE = re.compile(
+    r"寒光凛冽|锋芒毕露|生人勿近|嘴角勾起一抹|眼底闪过一丝|如尖刺|如惊雷|宛如神明"
+)
+UNNAMED_REF_RE = re.compile(
+    r"(?:一名|一个|一位)(?:身着|穿着|蒙面)?[^，。；\s]{1,8}(?:男子|女子|少年|少女|老者|大汉|妇人)"
+    r"|神秘(?:男子|女子|少年|老者)"
 )
 SILENCE_RE = re.compile(
     r"没说话|没接话|没吭声|没作声|没应声|没答话|没吱声|没回答|没开口|不说话|沉默不语|一言不发|说不出话"
@@ -43,6 +50,7 @@ ANCIENT_RE = re.compile(
 COMPOUND_RE = re.compile(r"与|及|、|^内外$|/|转|日至夜")
 
 BENCHMARK = {
+    "retrieved_at": "2026-11-24",
     "scenes_per_ep_median": 2,
     "dialogues_per_ep_p25": 9.0,
     "dialogues_per_ep_median": 13.0,
@@ -190,6 +198,39 @@ def check_episode(ep_no: int, body: str) -> tuple[dict, list[dict]]:
                             "tip": "手机消息、弹窗或到账提示不宜写成【字幕】，请改为普通动作行。",
                         }
                     )
+            elif not s.startswith("△【特写】") and "特写" in s:
+                issues.append(
+                    {
+                        "ep_no": ep_no,
+                        "line_no": idx + 1,
+                        "category": "特写未独立成行",
+                        "severity": "warn",
+                        "quote": s,
+                        "tip": "AI 漫剧分镜中特写须按「△【特写】……」独立成行，避免缀在普通动作句中。",
+                    }
+                )
+            if m_un := UNNAMED_REF_RE.search(s):
+                issues.append(
+                    {
+                        "ep_no": ep_no,
+                        "line_no": idx + 1,
+                        "category": "人物指代不清",
+                        "severity": "warn",
+                        "quote": s,
+                        "tip": f"出现悬念代指「{m_un.group(0)}」，请直写角色姓名以便分镜稳定出图。",
+                    }
+                )
+            if m_lit := LITERARY_RE.search(s):
+                issues.append(
+                    {
+                        "ep_no": ep_no,
+                        "line_no": idx + 1,
+                        "category": "文学修辞/抽象描写",
+                        "severity": "warn",
+                        "quote": s,
+                        "tip": f"出现文学修辞「{m_lit.group(0)}」，请改写为可直接出图的客观动作、表情或道具变化。",
+                    }
+                )
             if m_cl := CLICHE_RE.search(s):
                 issues.append(
                     {

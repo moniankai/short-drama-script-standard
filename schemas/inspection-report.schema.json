@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moniankai/short-drama-script-standard/blob/main/schemas/inspection-report.schema.json",
+  "title": "ScriptInspectionReport",
+  "description": "check_script_cli.py --json 输出报告的结构化契约。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "episode_count",
+    "scenes_per_ep",
+    "dialogues_per_ep",
+    "issue_count",
+    "benchmark",
+    "episodes",
+    "issues"
+  ],
+  "properties": {
+    "episode_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "scenes_per_ep": {
+      "type": "number",
+      "minimum": 0
+    },
+    "dialogues_per_ep": {
+      "type": "number",
+      "minimum": 0
+    },
+    "issue_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "benchmark": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scenes_per_ep_median",
+        "dialogues_per_ep_p25",
+        "dialogues_per_ep_median",
+        "dialogues_per_ep_p75",
+        "avg_dialogue_len_median",
+        "emotion_pct_median",
+        "source_url"
+      ],
+      "properties": {
+        "scenes_per_ep_median": { "type": "number", "minimum": 0 },
+        "dialogues_per_ep_p25": { "type": "number", "minimum": 0 },
+        "dialogues_per_ep_median": { "type": "number", "minimum": 0 },
+        "dialogues_per_ep_p75": { "type": "number", "minimum": 0 },
+        "avg_dialogue_len_median": { "type": "number", "minimum": 0 },
+        "emotion_pct_median": { "type": "number", "minimum": 0, "maximum": 100 },
+        "source_url": { "type": "string", "minLength": 1 }
+      }
+    },
+    "episodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/episode_stats"
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/issue"
+      }
+    }
+  },
+  "$defs": {
+    "episode_stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ep_no",
+        "chars",
+        "scenes",
+        "dialogues",
+        "avg_dialogue_len",
+        "emotion_pct"
+      ],
+      "properties": {
+        "ep_no": { "type": "integer", "minimum": 1 },
+        "chars": { "type": "integer", "minimum": 0 },
+        "scenes": { "type": "integer", "minimum": 0 },
+        "dialogues": { "type": "integer", "minimum": 0 },
+        "avg_dialogue_len": { "type": "number", "minimum": 0 },
+        "emotion_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ep_no", "line_no", "category", "severity", "quote", "tip"],
+      "properties": {
+        "ep_no": { "type": "integer", "minimum": 1 },
+        "line_no": { "type": "integer", "minimum": 1 },
+        "category": { "type": "string", "minLength": 1 },
+        "severity": { "type": "string", "enum": ["error", "warn"] },
+        "quote": { "type": "string" },
+        "tip": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

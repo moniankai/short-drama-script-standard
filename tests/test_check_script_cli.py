@@ -1,12 +1,12 @@
-import json
 from pathlib import Path
 import sys
 import tempfile
 import unittest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
 
-from check_script_cli import check_episode, inspect_script, main, split_episodes
+from check_script_cli import check_episode, inspect_script, main, split_episodes  # noqa: E402
 
 
 class CheckScriptCliTests(unittest.TestCase):
@@ -63,6 +63,22 @@ class CheckScriptCliTests(unittest.TestCase):
         stats, issues = check_episode(1, sample)
         self.assertEqual(stats["scenes"], 0)
         self.assertTrue(any(i["category"] == "缺少标准场头" for i in issues))
+
+    def test_good_and_bad_examples_and_ai_manju_rules(self):
+        good_text = (ROOT / "examples" / "good_ai_manju_ep1.txt").read_text(encoding="utf-8")
+        good_rep = inspect_script(good_text)
+        self.assertEqual(good_rep["issue_count"], 0, good_rep["issues"])
+
+        bad_text = (ROOT / "examples" / "bad_novelese_ep1.txt").read_text(encoding="utf-8")
+        bad_rep = inspect_script(bad_text)
+        cats = {item["category"] for item in bad_rep["issues"]}
+        self.assertIn("特写未独立成行", cats)
+        self.assertIn("人物指代不清", cats)
+        self.assertIn("文学修辞/抽象描写", cats)
+        self.assertIn("复合场头", cats)
+        self.assertIn("假字幕", cats)
+        self.assertIn("相邻重复行", cats)
+        self.assertIn("多人顿号连写", cats)
 
 
 if __name__ == "__main__":
