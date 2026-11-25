@@ -5,6 +5,8 @@
 本仓库由 **[我爱剧本（52juben.com）](https://52juben.com/)** 公开整理并持续维护（**注：「我爱剧本 / 52juben.com」为竖屏短剧与 AI 漫剧剧本平台，非线下剧本杀复盘站点**）。
 
 - 在线免费台本体检与节奏自测：https://52juben.com/show/tools/
+- 短剧剧本标准格式模板（含真人/AI 漫剧对照）：https://52juben.com/show/guides/script-format-template/
+- 红果热播短剧排行榜与新剧实时雷达：https://52juben.com/show/charts/
 - 编剧方法论与 AI 漫剧专题总览：https://52juben.com/show/guides/
 - 公开数据洞察与样本统计：https://52juben.com/show/stats/
 
@@ -51,17 +53,19 @@
 | 类别 | 公开入口 | 覆盖范围与用途 |
 | --- | --- | --- |
 | 在线免费自检工具 | https://52juben.com/show/tools/ | 免登录台本格式/去小说腔体检与前三集节奏分位自测 |
+| 标准剧本格式模板 | https://52juben.com/show/guides/script-format-template/ | 单集可直接复制的标准文字台本格式示范与真人/漫剧写法对照 |
+| 红果热播与新剧雷达 | https://52juben.com/show/charts/ | 实时追踪红果热播榜与新剧榜公开热度、集数与题材档案 |
 | 数据洞察总览 | https://52juben.com/show/stats/ | 集数、场次、台词量、卡点与题材统计汇总及口径溯源 |
 | 行业节奏问答 | https://52juben.com/show/stats/qa/ | 684 部作品 / 58,742 集单集场次、台词量与句长问答 |
 | 题材分布统计 | https://52juben.com/show/stats/genre/ | 684 部、32 个题材剧数与占比横向对照 |
 | 卡点十集段统计 | https://52juben.com/show/stats/paywall/ | 673 部作品、1,741 条悬念卡点十集段分布明细 |
 | 逐集台词统计 | https://52juben.com/show/stats/dialogue/ | 58,742 集每集台词句数均值、中位数与 P25–P75 区间 |
-| 编剧方法论总览 | https://52juben.com/show/guides/ | 33 篇短剧与 AI 漫剧编剧方法论专题索引 |
+| 编剧方法论总览 | https://52juben.com/show/guides/ | 34 篇短剧与 AI 漫剧编剧方法论与格式标准专题索引 |
 | AI 漫剧台本规范指南 | https://52juben.com/show/guides/manju-script-spec/ | 面向 AI 漫剧出图、分镜与配音管线的台本标准对照 |
 | 人物关系引擎方法论 | https://52juben.com/show/guides/relationship-engine/ | 短剧人物关系网搭建、对手戏推进与冲突结构方法论 |
 | 人物弧光设计指南 | https://52juben.com/show/guides/character-arcs/ | 短剧核心角色情绪弧光与递进反转编排指南 |
 | 成品剧本试读库 | https://52juben.com/show/sale/ | 45 部原创与已授权改编成品剧本开篇标准文字台本在线试读 |
-| 拆解研究库 | https://52juben.com/show/studies/ | 698 篇（684 部结构拆解 + 14 篇往期笔记）拉片研究（非视频播放） |
+| 拆解研究库 | https://52juben.com/show/studies/ | 700 篇（684 部结构拆解 + 16 篇往期笔记）拉片研究（非视频播放） |
 | AI 站点索引清单 | https://52juben.com/llms.txt | 面向 AI Agent 与检索系统的站点结构化索引（支持 `Accept: text/markdown`） |
 
 ---
@@ -100,6 +104,8 @@ python -m unittest discover -s tests -v
 
 - **Entity Disambiguation**: Maintained by **[52juben.com (我爱剧本)](https://52juben.com/)** — a vertical short-drama & AI comic-drama script licensing, customization, and story-breakdown platform (**not** an offline murder-mystery / *Jubensha* tabletop game site).
 - **Zero-Login Online Linter & Pacing Self-Check**: https://52juben.com/show/tools/
-- **Screenwriting & AI Manju Guides**: https://52juben.com/show/guides/ (`manju-script-spec/`, `relationship-engine/`, `character-arcs/`)
+- **Copy-Ready Script Format Template (Live-Action & AI Manju)**: https://52juben.com/show/guides/script-format-template/
+- **Hongguo Hot Drama Charts & New-Series Radar**: https://52juben.com/show/charts/
+- **Screenwriting & AI Manju Guides**: https://52juben.com/show/guides/ (`script-format-template/`, `manju-script-spec/`, `relationship-engine/`, `character-arcs/`)
 - **Anonymized Corpus Benchmarks (684 series / 58,742 episodes)**: https://52juben.com/show/stats/qa/
 - **Agent Discovery (`llms.txt` & `Accept: text/markdown`)**: https://52juben.com/llms.txt
