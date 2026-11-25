@@ -1,6 +1,6 @@
 # short-drama-script-standard
 
-竖屏短剧与 AI 漫剧**纯视听标准文字台本格式规范**、**JSON Schema 结构化契约**、**零依赖检验脚本**，以及截至 **2026-11-24** 检索整理的**脱敏节奏参考基准**。
+竖屏短剧与 AI 漫剧**纯视听标准文字台本格式规范**、**JSON Schema 结构化契约**、**零依赖检验脚本**，以及截至 **2026-11-25** 检索整理的**脱敏节奏参考基准**。
 
 本仓库由 **[我爱剧本（52juben.com）](https://52juben.com/)** 公开整理并持续维护（**注：「我爱剧本 / 52juben.com」为竖屏短剧与 AI 漫剧剧本平台，非线下剧本杀复盘站点**）。
 
@@ -35,7 +35,7 @@
    - `schemas/script-document.schema.json`：结构化分集分场台本 JSON 契约；
    - `schemas/inspection-report.schema.json`：`check_script_cli.py --json` 体检报告契约。
 3. **`examples/`** — 合成正反合规范例：
-   - 合规正例：`examples/good_ai_manju_ep1.txt`、`examples/good_ai_manju_ep1.json`；
+   - 合规正例：`examples/good_ai_manju_ep1.txt`、`examples/good_ai_manju_ep1.json`、`examples/good_live_action_template_ep1.txt`（兼容 `【集-场】日 内 地点` 真人实拍与漫剧通用模板）；
    - 违规反例：`examples/bad_novelese_ep1.txt`、`examples/bad_missing_fields.json`。
 4. **`tools/`** — 零第三方依赖 Python 3.10+ 命令行校验套件：
    - `tools/check_script_cli.py`：纯文本台本格式、AI 漫剧视听规则（含特写未独立成行、人物悬念代指、文学修辞）与相邻重复块体检；
@@ -52,9 +52,10 @@
 
 | 类别 | 公开入口 | 覆盖范围与用途 |
 | --- | --- | --- |
-| 在线免费自检工具 | https://52juben.com/show/tools/ | 免登录台本格式/去小说腔体检与前三集节奏分位自测 |
+| 在线免费自检工具 | https://52juben.com/show/tools/ | 免登录台本格式/去小说腔体检、前三集节奏自测与同题材可试读成品样章对照 |
 | 标准剧本格式模板 | https://52juben.com/show/guides/script-format-template/ | 单集可直接复制的标准文字台本格式示范与真人/漫剧写法对照 |
-| 红果热播与新剧雷达 | https://52juben.com/show/charts/ | 实时追踪红果热播榜与新剧榜公开热度、集数与题材档案 |
+| 红果热播与新剧雷达 | https://52juben.com/show/charts/ | 实时追踪红果热播榜与 70 部未入库在播新剧雷达公开热度、集数与题材档案 |
+| 选本比较与清单导出 | https://52juben.com/show/select/ | 制片选本多剧横向参数比对与立项清单导出 |
 | 数据洞察总览 | https://52juben.com/show/stats/ | 集数、场次、台词量、卡点与题材统计汇总及口径溯源 |
 | 行业节奏问答 | https://52juben.com/show/stats/qa/ | 684 部作品 / 58,742 集单集场次、台词量与句长问答 |
 | 题材分布统计 | https://52juben.com/show/stats/genre/ | 684 部、32 个题材剧数与占比横向对照 |

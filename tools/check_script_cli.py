@@ -14,11 +14,11 @@ import re
 import sys
 
 SCENE_RE = re.compile(
-    r"^【\s*(?P<ep>\d+)\s*[-－—]\s*(?P<scene>\d+)\s+(?P<body>[^】]+)】$"
+    r"^【\s*(?P<ep>\d+)\s*[-－—]\s*(?P<scene>\d+)(?:\s+(?P<in_body>[^】]+)】|】\s*(?P<out_body>.+))$"
 )
 EP_SPLIT_RE = re.compile(r"^\s*(?:第\s*(?P<num>\d+)\s*集|EP\s*(?P<ep>\d+))\b", re.I)
 DIALOGUE_RE = re.compile(
-    r"^(?P<name>[^△【\s（：:]{1,15}?)(?:\s*(?P<aside>OS|VO))?(?:（(?P<emo>[^（）]{1,12})）)?：(?P<text>.*)$"
+    r"^(?P<name>[^△【\s（：:]{1,15}?)(?:\s*(?P<aside>OS|VO))?(?:（(?P<emo>[^（）]{1,18})）)?[：:]\s*(?:（(?P<emo2>[^（）]{1,24})）\s*)?(?P<text>.*)$"
 )
 CAPTION_RE = re.compile(r"^△?【字幕[：:](?P<inner>[^】]+)】")
 TIME_CAPTION_RE = re.compile(
@@ -166,7 +166,8 @@ def check_episode(ep_no: int, body: str) -> tuple[dict, list[dict]]:
                         "tip": f"按顺序应为第 {scenes} 场，实际标注为第 {sc_no} 场。",
                     }
                 )
-            if COMPOUND_RE.search(m_sc.group("body")):
+            sc_body = (m_sc.group("in_body") or m_sc.group("out_body") or "").strip()
+            if COMPOUND_RE.search(sc_body):
                 issues.append(
                     {
                         "ep_no": ep_no,
@@ -198,7 +199,7 @@ def check_episode(ep_no: int, body: str) -> tuple[dict, list[dict]]:
                             "tip": "手机消息、弹窗或到账提示不宜写成【字幕】，请改为普通动作行。",
                         }
                     )
-            elif not s.startswith("△【特写】") and "特写" in s:
+            elif not re.match(r"^△\s*【特写】", s) and "特写" in s:
                 issues.append(
                     {
                         "ep_no": ep_no,
@@ -314,7 +315,7 @@ def check_episode(ep_no: int, body: str) -> tuple[dict, list[dict]]:
             if not m_dlg.group("aside"):
                 dialogues += 1
                 dlg_chars += len(m_dlg.group("text").strip())
-                if m_dlg.group("emo"):
+                if m_dlg.group("emo") or m_dlg.group("emo2"):
                     emo_count += 1
             if m_anc := ANCIENT_RE.search(m_dlg.group("text")):
                 issues.append(

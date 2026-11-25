@@ -80,6 +80,21 @@ class CheckScriptCliTests(unittest.TestCase):
         self.assertIn("相邻重复行", cats)
         self.assertIn("多人顿号连写", cats)
 
+    def test_supports_bracket_prefix_template_headings_and_colon_first_emotion(self):
+        tpl_text = (ROOT / "examples" / "good_live_action_template_ep1.txt").read_text(
+            encoding="utf-8"
+        )
+        rep = inspect_script(tpl_text)
+        self.assertEqual(rep["episode_count"], 1)
+        self.assertEqual(rep["scenes_per_ep"], 2.0)
+        self.assertEqual(rep["dialogues_per_ep"], 5.0)
+        self.assertEqual(rep["issue_count"], 0, rep["issues"])
+        self.assertGreater(rep["episodes"][0]["emotion_pct"], 0)
+        # 复合场头在【1-1】外置格式下同样必须拦截
+        bad_compound = "第1集\n【1-1】日 内 会议室/地下车库\n人物：林知夏\n△ 林知夏走入。\n"
+        bad_rep = inspect_script(bad_compound)
+        self.assertIn("复合场头", {i["category"] for i in bad_rep["issues"]})
+
 
 if __name__ == "__main__":
     unittest.main()
